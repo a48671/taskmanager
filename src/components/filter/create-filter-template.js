@@ -15,15 +15,13 @@ function createFilterMarkup({ name, count }, isChecked, isDisabled) {
     `);
 }
 
-export function createFilters(filters) {
+export function createFilterTemplate(filters) {
     const filtersMarkup = filters
         .map((filter, index) => createFilterMarkup(filter, index === 0, !filter.count))
         .join('\n');
     return(
-        `
-            <section class="main__filter filter container">
-                ${filtersMarkup}
-            </section>
-        `
+        `<section class="main__filter filter container">
+            ${filtersMarkup}
+        </section>`
     );
 }
