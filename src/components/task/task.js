@@ -1,21 +1,13 @@
 import { createTaskTemplate } from './create-task-template';
-import { createElement } from '/src/utils';
+import { AbstractComponent } from "/src/components/abstract-component";
 
-export class Task {
+
+export class Task extends AbstractComponent {
     constructor(task) {
+        super();
         this._task = task;
-        this._element = null;
     }
     getTemplate() {
         return createTaskTemplate(this._task);
-    }
-    getElement() {
-        if (!this._element) {
-            this._element = createElement(this.getTemplate())
-        }
-        return this._element;
-    }
-    removeElement() {
-        this._element = null;
     }
 }
